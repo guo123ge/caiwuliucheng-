@@ -1,0 +1,36 @@
+{
+  "accounts": [
+    {
+      "name": "工商银行-基本户",
+      "bank": "工商银行",
+      "account_no": "",
+      "subject_code": "1002.01",
+      "subject_name": "银行存款-工行基本户"
+    },
+    {
+      "name": "建设银行-一般户",
+      "bank": "建设银行",
+      "account_no": "",
+      "subject_code": "1002.02",
+      "subject_name": "银行存款-建行一般户"
+    },
+    {
+      "name": "农业银行-一般户",
+      "bank": "农业银行",
+      "account_no": "",
+      "subject_code": "1002.03",
+      "subject_name": "银行存款-农行一般户"
+    }
+  ],
+  "file_patterns": {
+    "bank_statement": "银行流水_{bank}_{year}年{month}月.xlsx",
+    "invoice_detail": "发票明细_*_{year}年{month}月.xlsx"
+  },
+  "data_dirs": {
+    "raw_data": "../00_原始数据",
+    "classified": "../01_分类汇总",
+    "matched": "../02_关联分析",
+    "vouchers": "../03_凭证输出",
+    "reports": "../04_税务报表"
+  }
+}

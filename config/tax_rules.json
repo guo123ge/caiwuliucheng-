@@ -1,0 +1,39 @@
+{
+  "value_added_tax": {
+    "general_tax_rate": 0.13,
+    "low_tax_rate": 0.09,
+    "small_tax_rate": 0.06,
+    "levy_rate": 0.03,
+    "small_scale_threshold": 5000000
+  },
+  "surtax": {
+    "urban_construction": 0.07,
+    "education": 0.03,
+    "local_education": 0.02
+  },
+  "corporate_income_tax": {
+    "standard_rate": 0.25,
+    "small_profit_rate": 0.20,
+    "small_micro_rate": 0.05,
+    "small_profit_threshold_profit": 3000000,
+    "small_profit_threshold_assets": 50000000,
+    "small_profit_threshold_employees": 300,
+    "small_micro_threshold_profit": 1000000
+  },
+  "stamp_duty": {
+    "purchase_sale_contract": 0.0003,
+    "loan_contract": 0.00005,
+    "property_lease": 0.001,
+    "capital_account": 0.00025
+  },
+  "social_insurance_rates": {
+    "pension_employer": 0.16,
+    "pension_employee": 0.08,
+    "medical_employer": 0.08,
+    "medical_employee": 0.02,
+    "unemployment_employer": 0.007,
+    "unemployment_employee": 0.003,
+    "injury_employer": 0.005,
+    "maternity_employer": 0.008
+  }
+}

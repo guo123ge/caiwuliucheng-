@@ -1,0 +1,90 @@
+{
+  "category_subject_mapping": {
+    "公司缴税": {
+      "debit": "税金及附加",
+      "credit": "银行存款",
+      "debit_code": "6403",
+      "credit_code": "1002"
+    },
+    "员工社保": {
+      "debit": "管理费用-社保费",
+      "credit": "银行存款",
+      "debit_code": "6602.03",
+      "credit_code": "1002"
+    },
+    "员工工资": {
+      "debit": "管理费用-工资",
+      "credit": "银行存款",
+      "debit_code": "6602.01",
+      "credit_code": "1002"
+    },
+    "转付货款": {
+      "debit": "原材料/库存商品",
+      "credit": "银行存款",
+      "debit_code": "1403/1405",
+      "credit_code": "1002"
+    },
+    "对外转付往来款": {
+      "debit": "其他应收款/其他应付款",
+      "credit": "银行存款",
+      "debit_code": "1221/2241",
+      "credit_code": "1002"
+    },
+    "收回货款": {
+      "debit": "银行存款",
+      "credit": "应收账款",
+      "debit_code": "1002",
+      "credit_code": "1122"
+    },
+    "银行手续费": {
+      "debit": "财务费用-手续费",
+      "credit": "银行存款",
+      "debit_code": "6603.01",
+      "credit_code": "1002"
+    },
+    "利息收入": {
+      "debit": "银行存款",
+      "credit": "财务费用-利息收入",
+      "debit_code": "1002",
+      "credit_code": "6603.02"
+    },
+    "其他收入": {
+      "debit": "银行存款",
+      "credit": "营业外收入/其他业务收入",
+      "debit_code": "1002",
+      "credit_code": "6301/6051"
+    },
+    "其他支出": {
+      "debit": "营业外支出/其他业务成本",
+      "credit": "银行存款",
+      "debit_code": "6711/6402",
+      "credit_code": "1002"
+    }
+  },
+  "invoice_subject_mapping": {
+    "抵减材料款": {
+      "debit": "原材料",
+      "credit": "应付账款",
+      "debit_code": "1403",
+      "credit_code": "2202"
+    },
+    "报销": {
+      "debit": "管理费用",
+      "credit": "其他应付款",
+      "debit_code": "6602",
+      "credit_code": "2241"
+    },
+    "借款": {
+      "debit": "其他应收款",
+      "credit": "银行存款/库存现金",
+      "debit_code": "1221",
+      "credit_code": "1001"
+    },
+    "固定资产": {
+      "debit": "固定资产",
+      "credit": "应付账款",
+      "debit_code": "1601",
+      "credit_code": "2202"
+    }
+  }
+}
