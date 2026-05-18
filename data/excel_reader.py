@@ -170,12 +170,12 @@ def read_bank_statement(file_path: str) -> pd.DataFrame:
     if "income" in data.columns:
         data["income"] = pd.to_numeric(data["income"], errors="coerce").fillna(0)
     else:
-        data["income"] = 0
+        data["income"] = 0.0
 
     if "expense" in data.columns:
         data["expense"] = pd.to_numeric(data["expense"], errors="coerce").fillna(0)
     else:
-        data["expense"] = 0
+        data["expense"] = 0.0
 
     if "balance" in data.columns:
         data["balance"] = pd.to_numeric(data["balance"], errors="coerce")

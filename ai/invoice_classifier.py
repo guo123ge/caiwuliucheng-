@@ -159,8 +159,8 @@ def get_invoice_summary(df: pd.DataFrame) -> pd.DataFrame:
     summary_rows = []
     for cat_name in df["发票分类"].dropna().unique():
         subset = df[df["发票分类"] == cat_name]
-        total_amount = pd.to_numeric(subset.get("金额", 0), errors="coerce").sum()
-        total_tax = pd.to_numeric(subset.get("税额", 0), errors="coerce").sum()
+        total_amount = pd.to_numeric(subset["金额"], errors="coerce").sum() if "金额" in subset.columns else 0.0
+        total_tax = pd.to_numeric(subset["税额"], errors="coerce").sum() if "税额" in subset.columns else 0.0
         summary_rows.append({
             "发票分类": cat_name,
             "发票数量": len(subset),

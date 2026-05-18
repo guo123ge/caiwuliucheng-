@@ -155,8 +155,8 @@ def get_classification_summary(df: pd.DataFrame) -> pd.DataFrame:
     summary_rows = []
     for cat_name in df["分类"].dropna().unique():
         subset = df[df["分类"] == cat_name]
-        total_income = pd.to_numeric(subset.get("收入金额", 0), errors="coerce").sum()
-        total_expense = pd.to_numeric(subset.get("支出金额", 0), errors="coerce").sum()
+        total_income = pd.to_numeric(subset["收入金额"], errors="coerce").sum() if "收入金额" in subset.columns else 0.0
+        total_expense = pd.to_numeric(subset["支出金额"], errors="coerce").sum() if "支出金额" in subset.columns else 0.0
         summary_rows.append({
             "分类": cat_name,
             "笔数": len(subset),
