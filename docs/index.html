@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 财务自动化工作流</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0f172a,#1e293b);color:#e2e8f0;min-height:100vh}
+.hero{text-align:center;padding:80px 20px 60px}
+.hero h1{font-size:2.8em;background:linear-gradient(135deg,#60a5fa,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.hero p{font-size:1.2em;color:#94a3b8;max-width:600px;margin:0 auto}
+.badge{display:inline-block;background:#1e3a5f;color:#60a5fa;padding:6px 16px;border-radius:20px;font-size:.85em;margin:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1100px;margin:0 auto;padding:0 20px 60px}
+.card{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:28px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:#60a5fa}
+.card h3{font-size:1.3em;margin-bottom:12px;color:#f1f5f9}
+.card .icon{font-size:2em;margin-bottom:12px}
+.card p{color:#94a3b8;line-height:1.7;font-size:.95em}
+.card .tag{display:inline-block;background:#0f172a;color:#34d399;padding:3px 10px;border-radius:12px;font-size:.75em;margin-top:12px}
+.stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:40px 20px;max-width:900px;margin:0 auto}
+.stat{text-align:center}
+.stat .num{font-size:2.4em;font-weight:700;background:linear-gradient(135deg,#60a5fa,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat .label{color:#94a3b8;font-size:.9em;margin-top:4px}
+.cta{text-align:center;padding:40px 20px 80px}
+.cta a{display:inline-block;background:linear-gradient(135deg,#2563eb,#059669);color:#fff;padding:14px 40px;border-radius:30px;text-decoration:none;font-size:1.1em;font-weight:600;transition:opacity .2s}
+.cta a:hover{opacity:.9}
+.footer{text-align:center;padding:30px;color:#475569;font-size:.85em}
+table{width:100%;border-collapse:collapse;margin:20px 0}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid #334155;font-size:.9em}
+th{color:#60a5fa;font-weight:600}
+td{color:#cbd5e1}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<h1>💰 AI 财务自动化工作流</h1>
+<p>基于 LLM 的智能财务处理系统 — 银行流水分类、发票关联、税务测算、财务报表，全流程自动化</p>
+<div style="margin-top:20px">
+<span class="badge">Python 3.10+</span>
+<span class="badge">Streamlit</span>
+<span class="badge">Pandas</span>
+<span class="badge">DeepSeek API</span>
+<span class="badge">Playwright</span>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><div class="num">1-5次</div><div class="label">月度 LLM API 调用</div></div>
+<div class="stat"><div class="num">≈¥0.05</div><div class="label">月度 API 成本</div></div>
+<div class="stat"><div class="num">5步</div><div class="label">自动化流程</div></div>
+<div class="stat"><div class="num">90%+</div><div class="label">关键词覆盖率</div></div>
+</div>
+
+<div class="grid">
+<div class="card">
+<div class="icon">📊</div>
+<h3>流程1: 银行流水处理</h3>
+<p>多银行流水自动合并 → 两阶段智能分类（缓存+关键词+批量LLM）→ 分类汇总表输出</p>
+<span class="tag">批量LLM · 零逐条调用</span>
+</div>
+<div class="card">
+<div class="icon">🧾</div>
+<h3>流程2: 发票处理与关联</h3>
+<p>发票智能分类 → 纯规则引擎账户-发票模糊匹配 → 自动识别平账/需开票/需索票状态</p>
+<span class="tag">纯fuzzywuzzy · 零LLM</span>
+</div>
+<div class="card">
+<div class="icon">📋</div>
+<h3>流程3: 凭证生成</h3>
+<p>按分类自动生成借贷分录 → 科目映射模板填充 → Excel凭证输出，支持金蝶导入</p>
+<span class="tag">模板填充 · 零LLM</span>
+</div>
+<div class="card">
+<div class="icon">📈</div>
+<h3>流程4-5: 税务与报表</h3>
+<p>增值税/附加税/所得税/印花税自动测算 → 资产负债表+损益表生成 → 一键导出</p>
+<span class="tag">纯公式计算 · 零LLM</span>
+</div>
+</div>
+
+<div style="max-width:900px;margin:0 auto;padding:0 20px 40px">
+<h2 style="text-align:center;margin-bottom:24px;color:#f1f5f9">⚡ 核心优化对比</h2>
+<table>
+<tr><th>指标</th><th>原方案</th><th style="color:#34d399">优化后</th></tr>
+<tr><td>月度 LLM 调用</td><td>数百次</td><td style="color:#34d399">1-5次</td></tr>
+<tr><td>分类模式</td><td>逐条调用</td><td style="color:#34d399">缓存→关键词→批量LLM</td></tr>
+<tr><td>关联匹配</td><td>可能调LLM</td><td style="color:#34d399">纯fuzzywuzzy（0 API）</td></tr>
+<tr><td>税务/报表</td><td>未明确</td><td style="color:#34d399">纯公式（0 API）</td></tr>
+<tr><td>默认模型</td><td>未指定</td><td style="color:#34d399">DeepSeek-V3（成本1/10）</td></tr>
+<tr><td>分类缓存</td><td>无</td><td style="color:#34d399">SQLite自学习</td></tr>
+</table>
+</div>
+
+<div class="cta">
+<a href="https://github.com/guo123ge/caiwuliucheng-" target="_blank">📦 查看源码 on GitHub</a>
+</div>
+
+<div class="footer">
+<p>AI 财务自动化工作流 v1.0 · Built with Windsurf AI IDE</p>
+</div>
+
+</body>
+</html>
