@@ -70,6 +70,8 @@ def classify_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     pending_indices = []
     for idx, row in df.iterrows():
         desc = row.get("摘要", row.get("description", ""))
+        if pd.isna(desc) or not isinstance(desc, str):
+            desc = ""
         result = _classify_single_rule_first(desc)
 
         if result["category"] is not None:

@@ -38,6 +38,7 @@ def _get_connection() -> sqlite3.Connection:
 
 
 def _hash_text(text: str) -> str:
+    text = str(text) if not isinstance(text, str) else text
     normalized = text.strip().lower().replace(" ", "").replace("\n", "")
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
