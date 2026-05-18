@@ -13,11 +13,27 @@ def find_bank_statement_files(data_dir: str, year: int, month: int) -> List[str]
         str(Path(data_dir) / f"银行流水_*_{year}年{month:02d}月.xls"),
         str(Path(data_dir) / f"银行流水_*_{year}{month:02d}.xlsx"),
         str(Path(data_dir) / f"银行流水_*_{year}{month:02d}.xls"),
+        str(Path(data_dir) / f"*银行流水*.xlsx"),
+        str(Path(data_dir) / f"*银行流水*.xls"),
+        str(Path(data_dir) / f"*{year}*{month:02d}*.xlsx"),
+        str(Path(data_dir) / f"*{year}*{month:02d}*.xls"),
+        str(Path(data_dir) / f"*{year}*{month}*.xlsx"),
+        str(Path(data_dir) / f"*{year}*{month}*.xls"),
     ]
 
     files = []
     for pattern in patterns:
         files.extend(glob.glob(pattern))
+
+    if not files:
+        fallback = [
+            str(Path(data_dir) / f"*银行流水*.xlsx"),
+            str(Path(data_dir) / f"*银行流水*.xls"),
+            str(Path(data_dir) / f"*.xlsx"),
+            str(Path(data_dir) / f"*.xls"),
+        ]
+        for pattern in fallback:
+            files.extend(glob.glob(pattern))
 
     seen = set()
     unique = []
@@ -30,15 +46,15 @@ def find_bank_statement_files(data_dir: str, year: int, month: int) -> List[str]
 
 def extract_bank_name(file_path: str) -> str:
     name = Path(file_path).stem
-    if "工商" in name:
+    if "工商" in name or "工行" in name:
         return "工商银行"
-    elif "建设" in name:
+    elif "建设" in name or "建行" in name:
         return "建设银行"
-    elif "农业" in name:
+    elif "农业" in name or "农行" in name:
         return "农业银行"
     elif "中国银行" in name or "中行" in name:
         return "中国银行"
-    elif "交通" in name:
+    elif "交通" in name or "交行" in name:
         return "交通银行"
     elif "招商" in name:
         return "招商银行"
