@@ -65,8 +65,25 @@ with tab2:
     with col2:
         st.metric("发票分类", "抵减材料款 / 报销 / 借款 / 固定资产")
     
-    if st.button("🚀 执行发票分类", type="primary"):
-        st.info("请先执行银行流水处理，然后运行 main.py --step 2")
+    if st.button("🚀 执行发票分类与关联", type="primary"):
+        with st.spinner("处理中..."):
+            try:
+                import glob
+                from data.excel_reader import read_invoice_detail
+                from ai.invoice_classifier import classify_invoices, get_invoice_summary
+                from config import config
+                raw_dir = config.data_dirs.get("raw_data", "../00_原始数据")
+                inv_files = glob.glob(str(Path(raw_dir) / "*发票*.xls*"))
+                if not inv_files:
+                    st.warning("⚠ 未找到含'发票'的文件")
+                else:
+                    dfs = [read_invoice_detail(f) for f in inv_files]
+                    invoices = pd.concat(dfs, ignore_index=True)
+                    st.success(f"✅ {len(invoices)}条发票")
+                    classified = classify_invoices(invoices)
+                    st.dataframe(get_invoice_summary(classified), use_container_width=True)
+            except Exception as e:
+                st.error(f"❌ {e}")
 
 with tab3:
     st.header("流程2B: 账户-发票关联分析")
