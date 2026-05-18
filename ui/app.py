@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 st.set_page_config(page_title="AI财务自动化工作流", layout="wide")
 st.title("💰 AI 财务自动化工作流系统")
